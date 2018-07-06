@@ -34,8 +34,14 @@ accounts = Table('accounts', metadata,
     Column('ip_as', String),
     Column('is_populated', Boolean, default=False))
 
+ascolors = Table('ascolors', metadata,
+    Column('id_color', Integer, primary_key=True),
+    Column('uid', String,primary_key=True),
+    Column('ip_as', String))
 
-engine = create_engine('sqlite:///database.db', echo=False)
-metadata.create_all(engine)
-session_factory = sessionmaker(bind=engine)
-Session = scoped_session(session_factory)
+
+# engine = create_engine('sqlite:///database.db', echo=False)
+# metadata.create_all(engine)
+# session_factory = sessionmaker(bind=engine)
+global Session
+Session = None #scoped_session(session_factory)

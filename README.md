@@ -21,15 +21,17 @@ On this very early stage, SHSD monitors usage of mail accounts to detect account
 
 * It parses the dovecot-imap log in /var/logs/mail.log
 * It stores the IPs from which each account has been authenticated
-* For each IP, [Onyphe](https://www.onyphe.io) is used to retrieve the associated AS and geolocation (with variable precision)
+* For each IP, GeoIP is used to retrieve the associated AS and geolocation (with variable precision)
 * It renders the authentications geolocations on a map
 
 It is aimed to be watched by the final users :
 
 * Each user should use SHSD as its default homepage (rather than a typically blank page)
 * Each user can see from where his account has been used
-* If some points are in a strange area (a foreign country for instance), user should detect this unusual pattern and then ask the hoster/forums
+* If some points are in a strange area (a foreign country or an anormal ISP for instance), user should detect this unusual pattern and then ask the hoster/forums. It may mean that the account has been used by a third-party
 * SHSD focus on the detection part, the remediation is out of our scope. We think that the global community on forums is quite efficient for remediation as soon as problems are detected.
+
+![SHSD](doc/screenshot.png)
 
  In a nutshell, SHSD tries to leverage users' unconscious reactions confronted with some change on a page which is usually quite static.
 
@@ -47,3 +49,7 @@ Notably, exists :
 SHSD aims to provide value to self-hosters who are not security experts. To achieve this, SHSD leverages specific knowledge and insights a self-hoster may have about his own devices or the few hosted guest accounts.
 
 SHSD does not feature any AI nor precog features.
+
+# Install notes
+
+Install notes are provided in [INSTALL.md](INSTALL.md)
